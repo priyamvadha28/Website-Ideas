@@ -1,0 +1,134 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  /* Changed background color to a flat light blue */
+  background-color: #e6f0fa; /* A light blue shade, you can change this hex code */
+  font-family: 'Roboto', sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  margin: 0;
+  padding: 20px;
+  color: #333;
+}
+
+h1 {
+  color: #333; /* Changed heading color to dark grey for contrast */
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+.faq-container {
+  max-width: 600px;
+  width: 90%;
+  margin: 0 auto;
+}
+
+.faq {
+  background-color: #fff;
+  border: 2px solid #9fa4a8;
+  border-radius: 10px;
+  margin: 15px 0;
+  padding: 20px 30px;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.faq.active {
+  background-color: #fff;
+  border-color: #3498db;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1), 0 3px 6px rgba(0, 0, 0, 0.1);
+  padding-bottom: 40px;
+}
+
+/* Background "speech bubble" icons for active state */
+.faq.active::before,
+.faq.active::after {
+  content: '\f075'; /* Font Awesome comment icon */
+  font-family: 'Font Awesome 5 Free';
+  font-weight: 900; /* Required for solid icons */
+  color: #2ecc71;
+  font-size: 7rem;
+  position: absolute;
+  opacity: 0.2;
+  top: 20px;
+  left: 20px;
+  z-index: 0;
+  transform: rotate(10deg);
+}
+
+.faq.active::before {
+  color: #3498db;
+  top: -10px;
+  left: -30px;
+  transform: rotate(-10deg);
+}
+
+.faq-title {
+  margin: 0 40px 0 0;
+  color: #333;
+}
+
+.faq-text {
+  margin: 20px 0 0;
+  display: none;
+  line-height: 1.5;
+}
+
+.faq.active .faq-text {
+  display: block;
+}
+
+.faq-toggle {
+  background-color: transparent;
+  border: 0;
+  cursor: pointer;
+  font-size: 16px;
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  height: 30px;
+  width: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  transition: background-color 0.3s ease;
+}
+
+.faq-toggle:focus {
+  outline: 0;
+}
+
+/* Chevron Down icon (for inactive state) */
+.faq-toggle .fa-chevron-down {
+  color: #777;
+  display: block;
+}
+
+/* Times icon (for active state) */
+.faq-toggle .fa-times {
+  color: #777;
+  display: none;
+}
+
+/* When FAQ is active, hide chevron and show times icon */
+.faq.active .faq-toggle .fa-chevron-down {
+  display: none;
+}
+
+.faq.active .faq-toggle .fa-times {
+  display: block;
+}
+
+/* Style for the button background when active */
+.faq.active .faq-toggle {
+    background-color: #f0f0f0;
+}
